@@ -8,7 +8,7 @@ import java.time.LocalDateTime;
 
 public class ClientGUI extends JFrame {
 
-    private static boolean loginTrigger;
+    private boolean loginTrigger;
     private static int count = 0;
     private static final int OFFSET_STEP = 20;
     private ServerWindow serverWindow;
@@ -82,6 +82,7 @@ public class ClientGUI extends JFrame {
                 if (serverWindow.isServerWorking()) {
                     panelTop.setVisible(false);
                     textMessage.setEnabled(true);
+                    buttonSend.setEnabled(true);
                     textAreaClient.append("Вы успешно подключились к серверу\n");
                     loginTrigger = true;
                     serverWindow.connectUser((String) comboBox.getSelectedItem());
@@ -89,8 +90,9 @@ public class ClientGUI extends JFrame {
                     serverWindow.registerClient(ClientGUI.this);
 
                 } else {
-                    panelTop.setVisible(true);
-                    textMessage.setEnabled(false);
+//                    panelTop.setVisible(true);
+//                    textMessage.setEnabled(false);
+//                    buttonSend.setEnabled(false);
                     textAreaClient.append("Сервер не запущен\n");
                 }
             }
@@ -138,6 +140,14 @@ public class ClientGUI extends JFrame {
     }
 
     private void sendMessage() {
+        if (!loginTrigger) {
+            textAreaClient.append("Вы не подключены/не залогинились\n");
+            return;
+        }
+        if (textMessage.getText().trim().isEmpty()) {
+            textAreaClient.append("Сообщение не может быть пустым\n");
+            return;
+        }
 
         LocalDateTime localDateTime = LocalDateTime.now();
         String dataNow = localDateTime.getDayOfMonth() + "-" + localDateTime.getMonth() + "-" + localDateTime.getYear();
@@ -153,6 +163,23 @@ public class ClientGUI extends JFrame {
         } else {
             textAreaClient.append("Сервер не запущен\n");
         }
+
+//        if (serverWindow.isServerWorking() && loginTrigger) {
+//            textMessage.setText("");
+//            serverWindow.broadcastMessage(message);
+//        } else if (!loginTrigger && serverWindow.isServerWorking()) {
+//            textAreaClient.append("Вы не подлючились/не залогинились\n");
+//        }else {
+//            textAreaClient.append("Сервер не запущен\n");
+//
+//        }
+
+//        if (serverWindow.isServerWorking()) {
+//            textMessage.setText("");
+//            serverWindow.broadcastMessage(message);
+//        } else {
+//            textAreaClient.append("Сервер не запущен\n");
+//        }
 
     }
 
