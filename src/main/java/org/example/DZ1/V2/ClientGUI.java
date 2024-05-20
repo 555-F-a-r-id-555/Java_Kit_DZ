@@ -158,15 +158,7 @@ public class ClientGUI extends JFrame {
         } else {
             textAreaClient.append("Сервер не запущен\n");
         }
-//        if (serverWindow.isServerWorking() && loginTrigger) {
-//            textMessage.setText("");
-//            serverWindow.broadcastMessage(message);
-//        } else if (!loginTrigger && serverWindow.isServerWorking()) {
-//            textAreaClient.append("Вы не подлючились/не залогинились\n");
-//        }else {
-//            textAreaClient.append("Сервер не запущен\n");
-//
-//        }
+
     }
 
     public void appendMessage(String message) {
