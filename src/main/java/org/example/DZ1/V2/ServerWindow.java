@@ -123,9 +123,16 @@ public class ServerWindow extends JFrame {
         }
     }
 
+//    public void registerClient(ClientGUI client) {
+//        clients.add(client);
+//        sendLogsToClient(client);
+//    }
+
     public void registerClient(ClientGUI client) {
-        clients.add(client);
-        sendLogsToClient(client);
+        if (!clients.contains(client)) {
+            clients.add(client);
+            sendLogsToClient(client);
+        }
     }
 
     public void addClientResetCallback(Runnable callback) {

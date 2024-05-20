@@ -74,9 +74,9 @@ public class ClientGUI extends JFrame {
                     serverWindow.connectUser((String) comboBox.getSelectedItem());
                     serverWindow.registerClient(ClientGUI.this);
                 } else {
-                    panelTop.setVisible(true);
-                    textMessage.setEnabled(false);
-                    buttonSend.setEnabled(false);
+//                    panelTop.setVisible(true);
+//                    textMessage.setEnabled(false);
+//                    buttonSend.setEnabled(false);
                     textAreaClient.append("Сервер не запущен\n");
                 }
             }
@@ -137,21 +137,36 @@ public class ClientGUI extends JFrame {
     }
 
     private void sendMessage(ServerWindow serverWindow) {
+        if (!loginTrigger) {
+            textAreaClient.append("Вы не подключены/не залогинились\n");
+            return;
+        }
+        if (textMessage.getText().trim().isEmpty()) {
+            textAreaClient.append("Сообщение не может быть пустым\n");
+            textAreaClient.append("Вероятно,Вы не подключены/не залогинились\n");
+            return;
+        }
         LocalDateTime localDateTime = LocalDateTime.now();
         String dataNow = localDateTime.getDayOfMonth() + "-" + localDateTime.getMonth() + "-" + localDateTime.getYear();
         String hourNow = localDateTime.getHour() + ":" + localDateTime.getMinute() + ":" + localDateTime.getSecond();
         String resDateNow = "дата: " + dataNow + " время: " + hourNow;
         String selectedUser = (String) comboBox.getSelectedItem();
         String message = resDateNow + " пользователь: " + selectedUser + ": " + textMessage.getText();
-        if (serverWindow.isServerWorking() && loginTrigger) {
+        if (serverWindow.isServerWorking()) {
             textMessage.setText("");
             serverWindow.broadcastMessage(message);
-        } else if (!loginTrigger && serverWindow.isServerWorking()) {
-            textAreaClient.append("Вы не подлючились/не залогинились\n");
-        }else {
+        } else {
             textAreaClient.append("Сервер не запущен\n");
-
         }
+//        if (serverWindow.isServerWorking() && loginTrigger) {
+//            textMessage.setText("");
+//            serverWindow.broadcastMessage(message);
+//        } else if (!loginTrigger && serverWindow.isServerWorking()) {
+//            textAreaClient.append("Вы не подлючились/не залогинились\n");
+//        }else {
+//            textAreaClient.append("Сервер не запущен\n");
+//
+//        }
     }
 
     public void appendMessage(String message) {
