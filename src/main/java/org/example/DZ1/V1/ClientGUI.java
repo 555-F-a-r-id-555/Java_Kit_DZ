@@ -109,19 +109,7 @@ public class ClientGUI extends JFrame {
         textMessage.addActionListener(sendActionListener);
         buttonSend.addActionListener(sendActionListener);
 
-//        textMessage.addActionListener(new ActionListener() {
-//            @Override
-//            public void actionPerformed(ActionEvent e) {
-//                sendMessage(serverWindow);
-//            }
-//        });
-//
-//        buttonSend.addActionListener(new ActionListener() {
-//            @Override
-//            public void actionPerformed(ActionEvent e) {
-//                sendMessage(serverWindow);
-//            }
-//        });
+
 
 
 //        setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -165,22 +153,7 @@ public class ClientGUI extends JFrame {
             textAreaClient.append("Сервер не запущен\n");
         }
 
-//        if (serverWindow.isServerWorking() && loginTrigger) {
-//            textMessage.setText("");
-//            serverWindow.broadcastMessage(message);
-//        } else if (!loginTrigger && serverWindow.isServerWorking()) {
-//            textAreaClient.append("Вы не подлючились/не залогинились\n");
-//        }else {
-//            textAreaClient.append("Сервер не запущен\n");
-//
-//        }
 
-//        if (serverWindow.isServerWorking()) {
-//            textMessage.setText("");
-//            serverWindow.broadcastMessage(message);
-//        } else {
-//            textAreaClient.append("Сервер не запущен\n");
-//        }
 
     }
 
