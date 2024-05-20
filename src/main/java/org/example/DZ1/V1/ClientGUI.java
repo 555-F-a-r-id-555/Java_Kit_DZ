@@ -146,6 +146,7 @@ public class ClientGUI extends JFrame {
         }
         if (textMessage.getText().trim().isEmpty()) {
             textAreaClient.append("Сообщение не может быть пустым\n");
+            textAreaClient.append("Вероятно,Вы не подключены/не залогинились\n");
             return;
         }
 
