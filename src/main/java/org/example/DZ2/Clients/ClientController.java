@@ -53,9 +53,6 @@ public class ClientController {
     }
 
 
-//public void disconnectFromServer(String name) {
-//    server.disconnectUser(this);
-//}
 
     public void disconnectFromServer(String name) {
         if (loginTrigger) {

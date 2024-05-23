@@ -18,8 +18,6 @@ public class Main {
         serverWindowGUI.setServerWindowController(serverWindowController);
 
 
-
-
         ClientGUI clientGUI1 = new ClientGUI();
         ClientController clientController1 = new ClientController(clientGUI1, serverWindowController);
         clientGUI1.setClientController(clientController1);

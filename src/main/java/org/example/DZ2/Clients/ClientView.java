@@ -13,7 +13,7 @@ public interface ClientView {
     void disconnectedByServer();
 
 /*
-*  //TODO - доработать метод отключения по нажатию по крестику  окна пользователя ClientGUI + решено
+*  //TODO - доработать метод отключения по нажатию нп крестик окна пользователя ClientGUI + решено
  */
     void userDisconnected();
 

@@ -45,15 +45,6 @@ public class ServerWindowController {
     }
 
 
-//    public void disconnectUser(ClientController clientController) {
-//       clientControllerList.remove(clientController);
-//        if (clientController != null){
-//            serverUserDisconnectInfo(clientController.getNameFomUser());
-//            clientController.userDisconnectedByServer();
-////            clientController.disconnectFromServer(clientController.getNameFomUser());
-//        }
-//    }
-
     public void disconnectUser(ClientController clientController) {
         clientControllerList.remove(clientController);
         if (clientController != null) {
