@@ -8,24 +8,27 @@ package org.example.DZ3.Task1;
 
 
 public class Calculation1 {
+    private static final Operations<Number, Number> SUMMATION = new Summation();
+    private static final Operations<Number, Number> SUBTRACTION = new Subtraction();
+    private static final Operations<Number, Number> MULTIPLICATION = new Multiplication();
+    private static final Operations<Number, Number> DIVISION = new Division();
+
     public static <T extends Number, U extends Number> Double sum(T a, U b) {
-        Operations<Number, Number> summation = new Summation();
-        return summation.action(a, b);
+        return SUMMATION.action(a, b);
     }
+
     public static <T extends Number, U extends Number> Double subtract(T a, U b) {
-        Operations<Number, Number> subtraction = new Subtraction();
-        return subtraction.action(a, b);
+        return SUBTRACTION.action(a, b);
     }
 
     public static <T extends Number, U extends Number> Double multiply(T a, U b) {
-        Operations<Number, Number> multiplication = new Multiplication();
-        return multiplication.action(a, b);
+        return MULTIPLICATION.action(a, b);
     }
 
-    public static <T extends Number,U extends Number> Double divide(T a,U b){
-        Operations<Number,Number> division = new Dividition();
-        return division.action(a,b);
+    public static <T extends Number, U extends Number> Double divide(T a, U b) {
+        return DIVISION.action(a, b);
     }
+
 
 
     public static void main(String[] args) {
@@ -44,13 +47,18 @@ public class Calculation1 {
         System.out.println("------------------------division------------------------");
         System.out.println(divide(5, 6));
         System.out.println(divide(5, 6.8));
-        System.out.println(divide(5.5, 0));
+        try {
+            System.out.println(divide(5.5, 0));
+        } catch (ArithmeticException e) {
+            System.out.println(e.getMessage());
+        }
     }
 }
 
 interface Operations<T extends Number, U extends Number> {
     Double action(T a, U b);
 }
+
 
 class Summation implements Operations<Number, Number> {
     @Override
@@ -76,16 +84,15 @@ class Multiplication implements Operations<Number, Number> {
         return num1 * num2;
     }
 }
-class Dividition implements Operations<Number, Number> {
+class Division implements Operations<Number, Number> {
     @Override
     public Double action(Number a, Number b) {
         double num1 = a.doubleValue();
         double num2 = b.doubleValue();
-        if(num2!=0){
-            return num1 / num2;
+        if (num2 == 0) {
+            throw new ArithmeticException("На нуль делить нельзя");
         }
-        System.out.println("На нуль делить нельзя");
-        return -0.0;
+        return num1 / num2;
     }
 }
 

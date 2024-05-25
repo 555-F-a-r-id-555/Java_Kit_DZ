@@ -1,6 +1,7 @@
 package org.example.DZ3.Task2;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 
 /**
@@ -41,10 +42,18 @@ public class ArrayComparator2 {
         B b = new B();
         C c = new C();
 
-        Collections.addAll(arrayListA, a, a, a, a, a);
-        Collections.addAll(arrayListA2, a, a, a, a, a);
-        Collections.addAll(arrayListB, b, b, b, b, b);
-        Collections.addAll(arrayListC, c, c, c, c, c);
+        A[] arr1 = new A[5];
+        B[] arr2 = new B[5];
+        C[] arr3 = new C[5];
+
+        Arrays.fill(arr1,a);
+        Arrays.fill(arr2,b);
+        Arrays.fill(arr3,c);
+
+        Collections.addAll(arrayListA, arr1);
+        Collections.addAll(arrayListA2, arr1);
+        Collections.addAll(arrayListB, arr2);
+        Collections.addAll(arrayListC, arr3);
 
         System.out.println("------------------------compareArrays-----------------------");
         System.out.println(compareArrays(arrayListA, arrayListB)); // false

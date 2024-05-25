@@ -71,32 +71,32 @@ public class ArrayComparator {
 
     public static void main(String[] args) {
 
-        arrayListA = new ArrayList<Integer>();
-        arrayListA2 = new ArrayList<Integer>();
+        arrayListA = new ArrayList<>();
+        arrayListA2 = new ArrayList<>();
 
-        arrayListB = new ArrayList<Double>();
-        arrayListC = new ArrayList<String>();
-        arrayListC2 = new ArrayList<String>();
-        arrayListD = new ArrayList<Character>();
+        arrayListB = new ArrayList<>();
+        arrayListC = new ArrayList<>();
+        arrayListC2 = new ArrayList<>();
+        arrayListD = new ArrayList<>();
 
 
-        Integer[] i = {1, 2, 3, 4, 5};
-        Collections.addAll(arrayListA, i);
+        Integer[] integer1 = {1, 2, 3, 4, 5};
+        Collections.addAll(arrayListA, integer1);
 
-        Integer[] i2 = {11, 21, 31, 41, 51};
-        Collections.addAll(arrayListA2, i2);
+        Integer[] integer2 = {11, 21, 31, 41, 51};
+        Collections.addAll(arrayListA2, integer2);
 
-        Double[] j = {1.5, 2.8, 3.9, 4.0, 5.0};
-        Collections.addAll(arrayListB, j);
+        Double[] double1 = {1.5, 2.8, 3.9, 4.0, 5.0};
+        Collections.addAll(arrayListB, double1);
 
-        String[] k = {"Первый", "Второй", "Третей", "Четвертый", "Пятый"};
-        Collections.addAll(arrayListC, k);
+        String[] string1 = {"Первый", "Второй", "Третей", "Четвертый", "Пятый"};
+        Collections.addAll(arrayListC, string1);
 
-        String[] k2 = {"Первый-1", "Второй-2", "Третей-3", "Четвертый-4", "Пятый-5"};
-        Collections.addAll(arrayListC2, k2);
+        String[] string2 = {"Первый-1", "Второй-2", "Третей-3", "Четвертый-4", "Пятый-5"};
+        Collections.addAll(arrayListC2, string2);
 
-        Character[] n = {'П', 'В', 'Т', 'Ч', 'П'};
-        Collections.addAll(arrayListD, n);
+        Character[] char1 = {'П', 'В', 'Т', 'Ч', 'П'};
+        Collections.addAll(arrayListD, char1);
 
 
         System.out.println("------------------------compareArrays-----------------------");
